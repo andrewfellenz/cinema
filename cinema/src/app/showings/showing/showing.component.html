@@ -1,0 +1,16 @@
+<section class="wide-card rounded dark-text centered">
+  <div>
+    <h2>{{ showing.film.title }}</h2>
+    <button class="rounded" [routerLink]="['showing/1']">Buy Tickets</button>
+  </div>
+  <div>
+    <span>Directed By: {{ showing.film.director }}</span>
+    <span>{{ showing.film.star }}</span>
+  </div>
+  <div>
+    <span>{{ showing.time | date: "shortTime" }}</span>
+    <span>{{ "Running Time: " + showing.film.runTime }}</span>
+    <span>{{ "Rated: " + showing.film.rating }}</span>
+    <span>{{ "Genre: " + showing.film.genre }}</span>
+  </div>
+</section>

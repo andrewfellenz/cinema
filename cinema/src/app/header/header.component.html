@@ -1,4 +1,10 @@
 <header>
-  <H1>Angular Cinema</H1>
-  <button *ngFor="let button of buttons"></button>
+  <H1 [routerLink]="['']">Angular Cinema</H1>
+  <nav>
+    <button class="rounded" [routerLink]="['']">Sign In</button>
+    <button class="rounded" [routerLink]="['']">Register</button>
+    <button class="rounded" [routerLink]="['management-tools']">
+      Manager Tools
+    </button>
+  </nav>
 </header>

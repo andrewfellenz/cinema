@@ -5,7 +5,7 @@ export enum rating {
   R = "R",
 }
 
-export interface Films {
+export interface Film {
   title: string;
   rating: rating;
   genre: string;
