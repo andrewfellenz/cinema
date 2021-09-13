@@ -16,6 +16,7 @@ import { AddFilmComponent } from "./management-tools/add-film/add-film.component
 import { EditFilmComponent } from "./management-tools/edit-film/edit-film.component";
 import { EditShowingComponent } from "./management-tools/edit-showing/edit-showing.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
     EditFilmComponent,
     EditShowingComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [HttpClient],
   bootstrap: [AppComponent],
 })

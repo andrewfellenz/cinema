@@ -17,5 +17,6 @@ export class ShowingsComponent implements OnInit {
       this.allShowings = data;
       console.log(this.allShowings);
     });
+    console.log(this.allShowings);
   }
 }

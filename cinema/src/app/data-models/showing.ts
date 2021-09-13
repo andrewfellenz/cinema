@@ -1,9 +1,20 @@
-import { Film } from "./film";
-
 export class Showing {
   id: number;
-  theatre: number;
-  film: Film;
+  theatreId: number;
+  filmId: number;
   ticketPrice: number;
-  time: Date;
+  time: string;
+  constructor(
+    id: number,
+    theatreId: number,
+    filmId: number,
+    ticketPrice: number,
+    time: string
+  ) {
+    this.id = id;
+    this.theatreId = theatreId;
+    this.filmId = filmId;
+    this.ticketPrice = ticketPrice;
+    this.time = time;
+  }
 }

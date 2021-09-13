@@ -1,1 +1,22 @@
-<p>add-showing works!</p>
+<form class="rounded" [formGroup]="addShowingForm">
+  <h1 class="dark-text">Add Showing</h1>
+  <label for="filmId" class="dark-text">Film to be shown:</label>
+  <select id="filmId" formControlName="filmId">
+    <option *ngFor="let film of films" [ngValue]="film?.id">
+      {{ film?.title }}
+    </option>
+  </select>
+  <label for="theatreId" class="dark-text"
+    >Theatre where it will be shown:</label
+  >
+  <select id="theatreId" formControlName="theatreId">
+    <option *ngFor="let theatre of theatres" [ngValue]="theatre?.id">
+      {{ "Theatre: " + theatre?.id + " " + theatre?.seatingText }}
+    </option>
+  </select>
+  <label for="time" class="dark-text">Time of showing:</label>
+  <input id="time" formControlName="time" type="datetime-local" />
+  <button class="cta rounded small-button" (click)="addShowing()">
+    Add Showing
+  </button>
+</form>

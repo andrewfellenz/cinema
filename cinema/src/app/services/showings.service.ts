@@ -22,4 +22,23 @@ export class ShowingsService {
     console.log(`getShowings() returned ${showings}`);
     return showings;
   }
+
+  getShowingById(id: number): Observable<Showing> {
+    const showing: Observable<Showing> = this.http.get<Showing>(
+      `${this.showingsUrl}/${id}`
+    );
+    console.log(`getShowingById(${id}) returned ${showing}`);
+    return showing;
+  }
+
+  addShowing(showing: Showing): Observable<Showing> {
+    const results: Observable<Showing> = this.http.post<Showing>(
+      this.showingsUrl,
+      new Showing(0, 0, 0, 0, ""),
+      this.jsonContentTypeHeaders
+    );
+    console.log(`addShowing(${showing}) returned ${results}`);
+    console.log(typeof showing.id);
+    return results;
+  }
 }

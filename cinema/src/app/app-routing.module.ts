@@ -17,12 +17,10 @@ const routes: Routes = [
   {
     path: "showings",
     component: ShowingsComponent,
-    children: [
-      {
-        path: "showings/:id",
-        component: ShowingDetailsComponent,
-      },
-    ],
+  },
+  {
+    path: "buy-tickets/:id",
+    component: ShowingDetailsComponent,
   },
   {
     path: "management-tools",
