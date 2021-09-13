@@ -15,10 +15,10 @@ import { TheatresService } from "src/app/services/theatres.service";
 export class AddShowingComponent implements OnInit {
   films: Film;
   theatres: Theatre;
-  showing = new Showing(0, 0, 0, 0, "");
+  showing = new Showing();
 
   addShowingForm = new FormGroup({
-    filmId: new FormControl(),
+    film: new FormControl(""),
     theatreId: new FormControl(""),
     time: new FormControl(""),
   });
@@ -39,10 +39,18 @@ export class AddShowingComponent implements OnInit {
   addShowing(): void {
     this.showing.id = 0;
     this.showing.ticketPrice = 0;
-    this.showing.filmId = this.addShowingForm.get("filmId").value;
+    console.log("Value of 'film':", this.addShowingForm.get("film").value);
     this.showing.theatreId = this.addShowingForm.get("theatreId").value;
     this.showing.time = "2020-03-09T22:18:26.625Z";
-    console.log("Check my values: ", this.showing, typeof this.showing);
-    this.showingsService.addShowing(this.showing).subscribe();
+    this.showing.ticketPrice = 13;
+    this.filmsService
+      .getFilmById(this.addShowingForm.get("film").value)
+      .subscribe(
+        (film) => (this.showing.film = film),
+        () => "",
+        () => {
+          this.showingsService.addShowing(this.showing).subscribe();
+        }
+      );
   }
 }

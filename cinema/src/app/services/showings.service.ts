@@ -34,11 +34,10 @@ export class ShowingsService {
   addShowing(showing: Showing): Observable<Showing> {
     const results: Observable<Showing> = this.http.post<Showing>(
       this.showingsUrl,
-      new Showing(0, 0, 0, 0, ""),
+      showing,
       this.jsonContentTypeHeaders
     );
     console.log(`addShowing(${showing}) returned ${results}`);
-    console.log(typeof showing.id);
     return results;
   }
 }

@@ -8,6 +8,7 @@ import { Showing } from "src/app/data-models/showing";
 })
 export class ShowingComponent implements OnInit {
   @Input() showing: Showing;
+  manager = true;
 
   constructor() {}
 
