@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Film } from "src/app/data-models/film";
 import { Showing } from "src/app/data-models/showing";
 import { Theatre } from "src/app/data-models/theatre";
@@ -17,17 +17,29 @@ export class AddShowingComponent implements OnInit {
   theatres: Theatre;
   showing = new Showing();
 
-  addShowingForm = new FormGroup({
+  addShowingForm: FormGroup;
+  
+
+ /*  addShowingForm = new FormGroup({
     film: new FormControl(""),
     theatre: new FormControl(""),
     time: new FormControl(""),
   });
-
+ */
   constructor(
     private showingsService: ShowingsService,
     private filmsService: FilmsService,
-    private theatresService: TheatresService
-  ) {}
+    private theatresService: TheatresService,
+    private formBuilder: FormBuilder,
+  ) {
+    this.addShowingForm = formBuilder.group(
+      {
+        film: [null, Validators.required],
+        theatre: [null, Validators.required],
+        time: [null, Validators.required],
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.filmsService.getFilms().subscribe((film) => (this.films = film));
@@ -36,15 +48,19 @@ export class AddShowingComponent implements OnInit {
       .subscribe((theatre) => (this.theatres = theatre));
   }
 
-  addShowing(): void {
+  onSubmit(formValues) {
+    this.addShowing(formValues);
+  }
+
+  addShowing(formValues): void {
     this.showing.id = 0;
     this.showing.ticketPrice = 0;
-    this.showing.time = this.addShowingForm.get("time").value;
-     console.log(this.addShowingForm.get("time").value);
+    this.showing.time = formValues.time;
+    console.log(this.addShowingForm.get("time").value);
     this.showing.ticketPrice = 13;
-    this.theatresService.gettheatreById(this.addShowingForm.get("theatre").value).subscribe((theatre) => (this.showing.theatre = theatre));
+    this.theatresService.gettheatreById(formValues.theatre).subscribe((theatre) => (this.showing.theatre = theatre));
     this.filmsService
-      .getFilmById(this.addShowingForm.get("film").value)
+      .getFilmById(formValues.film)
       .subscribe(
         (film) => (this.showing.film = film),
         () => "",

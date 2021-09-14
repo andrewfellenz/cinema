@@ -1,0 +1,20 @@
+[
+  {
+    "ViewerId": 1,
+    "Name": "Andrew F",
+    "Registered": true,
+    "DOB": "1990-08-30T05:00:00.000Z",
+    "username": "andrewf",
+    "password": "movie",
+    "Tickets": []
+  },
+  {
+    "ViewerId": 2,
+    "Name": "Kevin R",
+    "Registered": false,
+    "DOB": "1990-08-30T05:00:00.000Z",
+    "username": "andrewf",
+    "password": "movie",
+    "Tickets": []
+  }
+]
