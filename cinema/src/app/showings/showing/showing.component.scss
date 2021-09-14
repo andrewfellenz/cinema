@@ -14,4 +14,17 @@ section {
     display: flex;
     justify-content: space-between;
   }
+  input, select {
+    width: 30%;
+    font-size: 1em;
+    padding-left: 12px;
+  }
+}
+
+#delete-button {
+  background: linear-gradient(to top left, #cc0000, #ff7c4e);
+}
+
+#delete-button:hover {
+    box-shadow: 0 0 4px 2px rgba(255, 0, 0, 0.5);
 }

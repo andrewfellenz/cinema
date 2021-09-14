@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { FilmsComponent } from "./films/films.component";
 import { HomeComponent } from "./home/home.component";
 import { AddFilmComponent } from "./management-tools/add-film/add-film.component";
 import { AddShowingComponent } from "./management-tools/add-showing/add-showing.component";
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "showings",
     component: ShowingsComponent,
+  },
+  {
+    path: "films",
+    component: FilmsComponent,
   },
   {
     path: "buy-tickets/:id",

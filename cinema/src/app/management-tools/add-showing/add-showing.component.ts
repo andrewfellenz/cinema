@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { Film } from "src/app/data-models/film";
 import { Showing } from "src/app/data-models/showing";
 import { Theatre } from "src/app/data-models/theatre";
@@ -18,19 +19,13 @@ export class AddShowingComponent implements OnInit {
   showing = new Showing();
 
   addShowingForm: FormGroup;
-  
 
- /*  addShowingForm = new FormGroup({
-    film: new FormControl(""),
-    theatre: new FormControl(""),
-    time: new FormControl(""),
-  });
- */
   constructor(
     private showingsService: ShowingsService,
     private filmsService: FilmsService,
     private theatresService: TheatresService,
     private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.addShowingForm = formBuilder.group(
       {
@@ -46,6 +41,7 @@ export class AddShowingComponent implements OnInit {
     this.theatresService
       .getTheatres()
       .subscribe((theatre) => (this.theatres = theatre));
+    this.addShowingForm.valueChanges.subscribe(console.log);
   }
 
   onSubmit(formValues) {
@@ -56,7 +52,6 @@ export class AddShowingComponent implements OnInit {
     this.showing.id = 0;
     this.showing.ticketPrice = 0;
     this.showing.time = formValues.time;
-    console.log(this.addShowingForm.get("time").value);
     this.showing.ticketPrice = 13;
     this.theatresService.gettheatreById(formValues.theatre).subscribe((theatre) => (this.showing.theatre = theatre));
     this.filmsService
@@ -68,5 +63,6 @@ export class AddShowingComponent implements OnInit {
           this.showingsService.addShowing(this.showing).subscribe();
         }
       );
+    this.router.navigate(['/management-tools'])
   }
 }

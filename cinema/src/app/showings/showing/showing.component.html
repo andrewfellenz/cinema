@@ -1,6 +1,12 @@
 <section class="wide-card rounded dark-text centered">
   <div>
-    <h2>{{ showing.film.title }}</h2>
+    <h2 *ngIf="false">{{ showing.film.title }}</h2>
+    <input *ngIf="true" type="text" value="{{showing.film.title}}"/>
+    <select>
+      <option [ngValue]="showing.theatre.id">
+        {{ "Theatre: " + showing.theatre?.id + " " + showing.theatre?.seatingText }}
+      </option>
+    </select>
     <div *ngIf="!manager">
       <button
         class="rounded small-button"
@@ -10,14 +16,14 @@
       </button>
     </div>
     <div *ngIf="manager">
-      <button class="rounded small-button" (click)="deleteShowing(showing)">
-        Delete Showing
-      </button>
       <button
-        class="rounded small-button"
-        [routerLink]="['/buy-tickets/', showing.id]"
+      class="rounded small-button"
+      [routerLink]="['/buy-tickets/', showing.id]"
       >
-        Edit Showing
+        Edit
+      </button>
+      <button id="delete-button" class="rounded small-button" (click)="deleteShowing(showing)">
+        Delete
       </button>
     </div>
   </div>
@@ -26,7 +32,8 @@
     <span>{{ "Starring: " + showing.film.star }}</span>
   </div>
   <div>
-    <span>{{ showing.time }}</span>
+    <span *ngIf="false">{{ showing.time }}</span>
+    <input *ngIf="true" type="time" value="{{showing.time}}"/>
     <span>{{ "Running Time: " + showing.film.runTime }}</span>
     <span>{{ "Rated: " + showing.film.rating }}</span>
     <span>{{ "Genre: " + showing.film.genre }}</span>

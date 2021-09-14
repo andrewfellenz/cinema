@@ -17,6 +17,8 @@ import { EditFilmComponent } from "./management-tools/edit-film/edit-film.compon
 import { EditShowingComponent } from "./management-tools/edit-showing/edit-showing.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
+import { FilmsComponent } from './films/films.component';
+import { FilmComponent } from './films/film/film.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     AddFilmComponent,
     EditFilmComponent,
     EditShowingComponent,
+    FilmsComponent,
+    FilmComponent,
   ],
   imports: [
     BrowserModule,

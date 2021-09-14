@@ -13,12 +13,13 @@ export class EditShowingComponent implements OnInit {
 
   constructor(private showingsService: ShowingsService) {}
 
+
+  // Think of a way to do with behavior subject
   deleteShowing(showing: Showing): void {
-    this.showingsService.deleteShowingById(showing.id).subscribe();
+    this.showingsService.deleteShowingById(showing.id).subscribe(() => this.showingsService
+    .getShowings()
+    .subscribe((showings) => (this.allShowings = showings)));
     console.log(this.allShowings);
-    this.showingsService
-      .getShowings()
-      .subscribe((showings) => (this.allShowings = showings));
   }
 
   ngOnInit(): void {
