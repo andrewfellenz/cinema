@@ -1,19 +1,32 @@
 <section class="wide-card rounded dark-text centered">
   <div>
     <h2>{{ showing.film.title }}</h2>
-    <button
-      class="rounded small-button"
-      [routerLink]="['/buy-tickets/', showing.id]"
-    >
-      Buy Tickets
-    </button>
+    <div *ngIf="!manager">
+      <button
+        class="rounded small-button"
+        [routerLink]="['/buy-tickets/', showing.id]"
+      >
+        Buy Tickets
+      </button>
+    </div>
+    <div *ngIf="manager">
+      <button class="rounded small-button" (click)="deleteShowing(showing)">
+        Delete Showing
+      </button>
+      <button
+        class="rounded small-button"
+        [routerLink]="['/buy-tickets/', showing.id]"
+      >
+        Edit Showing
+      </button>
+    </div>
   </div>
   <div>
     <span>{{ "Director: " + showing.film.director }}</span>
     <span>{{ "Starring: " + showing.film.star }}</span>
   </div>
   <div>
-    <span>{{ showing.time | date: "shortTime" }}</span>
+    <span>{{ showing.time }}</span>
     <span>{{ "Running Time: " + showing.film.runTime }}</span>
     <span>{{ "Rated: " + showing.film.rating }}</span>
     <span>{{ "Genre: " + showing.film.genre }}</span>

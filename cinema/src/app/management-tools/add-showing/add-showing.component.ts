@@ -19,7 +19,7 @@ export class AddShowingComponent implements OnInit {
 
   addShowingForm = new FormGroup({
     film: new FormControl(""),
-    theatreId: new FormControl(""),
+    theatre: new FormControl(""),
     time: new FormControl(""),
   });
 
@@ -39,10 +39,10 @@ export class AddShowingComponent implements OnInit {
   addShowing(): void {
     this.showing.id = 0;
     this.showing.ticketPrice = 0;
-    console.log("Value of 'film':", this.addShowingForm.get("film").value);
-    this.showing.theatreId = this.addShowingForm.get("theatreId").value;
-    this.showing.time = "2020-03-09T22:18:26.625Z";
+    this.showing.time = this.addShowingForm.get("time").value;
+     console.log(this.addShowingForm.get("time").value);
     this.showing.ticketPrice = 13;
+    this.theatresService.gettheatreById(this.addShowingForm.get("theatre").value).subscribe((theatre) => (this.showing.theatre = theatre));
     this.filmsService
       .getFilmById(this.addShowingForm.get("film").value)
       .subscribe(

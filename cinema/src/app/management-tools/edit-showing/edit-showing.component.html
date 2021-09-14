@@ -1,1 +1,7 @@
-<p>edit-showing works!</p>
+<cin-showing
+  [manager]="true"
+  *ngFor="let showing of allShowings"
+  [showing]="showing"
+  (deleteShowingEvent)="deleteShowing($event)"
+>
+</cin-showing>

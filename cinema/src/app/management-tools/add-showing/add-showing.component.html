@@ -1,7 +1,7 @@
 <form class="rounded" [formGroup]="addShowingForm">
   <h1 class="dark-text">Add Showing</h1>
   <label for="film" class="dark-text">Film to be shown:</label>
-  <select id="film" formControlName="film">
+  <select required id="film" formControlName="film">
     <option *ngFor="let film of films" [ngValue]="film.id">
       {{ film?.title }}
     </option>
@@ -9,12 +9,13 @@
   <label for="theatreId" class="dark-text"
     >Theatre where it will be shown:</label
   >
-  <select id="theatreId" formControlName="theatreId">
+  <select required id="theatre" formControlName="theatre">
     <option *ngFor="let theatre of theatres" [ngValue]="theatre?.id">
       {{ "Theatre: " + theatre?.id + " " + theatre?.seatingText }}
     </option>
   </select>
-
+  <label for="time" class="dark-text">Time of showing:</label>
+  <input required type="time" id="time" formControlName="time" value="17:30">
   <button class="cta rounded small-button" (click)="addShowing()">
     Add Showing
   </button>

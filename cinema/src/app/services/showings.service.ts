@@ -40,4 +40,12 @@ export class ShowingsService {
     console.log(`addShowing(${showing}) returned ${results}`);
     return results;
   }
+
+  deleteShowingById(showingId: number) {
+    const results: Observable<Showing> = this.http.delete<Showing>(
+      `${this.showingsUrl}/${showingId}`
+    );
+    console.log(`deleteShowingById(${showingId}) returned ${results}`);
+    return results;
+  }
 }

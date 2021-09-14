@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
 import { Showing } from "../data-models/showing";
 import { ShowingsService } from "../services/showings.service";
 
@@ -13,10 +14,8 @@ export class ShowingsComponent implements OnInit {
   constructor(private showingsService: ShowingsService) {}
 
   ngOnInit(): void {
-    this.showingsService.getShowings().subscribe((data: any) => {
-      this.allShowings = data;
-      console.log(this.allShowings);
+    this.showingsService.getShowings().subscribe((showings: Showing) => {
+      this.allShowings = showings;
     });
-    console.log(this.allShowings);
   }
 }
