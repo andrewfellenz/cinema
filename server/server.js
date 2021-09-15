@@ -411,6 +411,53 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
   res.status(200).send();
 });
 
+// EDIT A SHOWING
+app.put("/api/showings", urlencodedParser, function (req, res) {
+  console.log("Received a PUT request to edit a showing");
+  console.log("BODY -------->" + JSON.stringify(req.body));
+
+  // assemble group information so we can validate it
+  /*   console.log("Performing validation...");
+  let errorCode = isValidGroup(group);
+  if (errorCode != -1) {
+    console.log("Invalid data found! Reason: " + errorCode);
+    res.status(400).send("Bad Request - Incorrect or Missing Data");
+    return;
+  } */
+
+  let data = fs.readFileSync(__dirname + "/data/showings.json", "utf8");
+  data = JSON.parse(data);
+
+  // find the group
+  let match = data.find((element) => element.id == req.body.id);
+  if (match == null) {
+    res.status(404).send("Group Not Found");
+    return;
+  }
+
+  // update the group
+  match.id = req.body.id;
+  match.theatre = req.body.theatre;
+  match.film = req.body.film;
+  match.ticketPrice = req.body.ticketPrice;
+  match.time = req.body.time;
+
+  // make sure new values for MaxGroupSize doesn't invalidate grooup
+  /*   if (Number(req.body.MaxGroupSize) < match.Members.length) {
+    res
+      .status(409)
+      .send("New group size too small based on current number of members");
+    return;
+  }
+  match.MaxGroupSize = Number(req.body.MaxGroupSize); */
+
+  fs.writeFileSync(__dirname + "/data/showings.json", JSON.stringify(data));
+
+  console.log("Update successful!  New values: ");
+  console.log(match);
+  res.status(200).send();
+});
+
 // DELETE A GROUP
 app.delete("/api/groups/:id", function (req, res) {
   let id = req.params.id;

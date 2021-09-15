@@ -45,7 +45,7 @@
       *ngIf="editMode"
       type="time"
       [(ngModel)]="showing.time"
-      value="{{ showing.time }}"
+      value="{{ showing?.time }}"
     />
     <span>{{ "Running Time: " + showing?.film.runTime }}</span>
     <span>{{ "Rated: " + showing?.film.rating }}</span>
