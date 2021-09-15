@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
+
 @Pipe({ name: "time" })
 export class TimeFormat implements PipeTransform {
   transform(time: any): any {
@@ -8,9 +9,13 @@ export class TimeFormat implements PipeTransform {
     if (hour >= 12 && hour < 24) {
       part = "PM";
     }
+    if (hour == 0) {
+      hour = 12;
+    } else if (hour > 12) {
+      hour = hour - 12;
+    }
+    hour = parseInt(hour) < 10 ? (hour = `${hour[1]}`) : hour;
     min = (min + "").length == 1 ? `0${min}` : min;
-    hour = hour > 12 ? hour - 12 : hour;
-    hour = hour == 0 ? 12 : hour;
     return `${hour}:${min} ${part}`;
   }
 }

@@ -1,18 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Film } from 'src/app/data-models/film';
+import { HeaderService } from "src/app/services/header.service";
+import { Component, Input, OnInit } from "@angular/core";
+import { Film } from "src/app/data-models/film";
 
 @Component({
-  selector: 'cin-film',
-  templateUrl: './film.component.html',
-  styleUrls: ['./film.component.scss']
+  selector: "cin-film",
+  templateUrl: "./film.component.html",
+  styleUrls: ["./film.component.scss"],
 })
 export class FilmComponent implements OnInit {
-
   @Input() film: Film;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

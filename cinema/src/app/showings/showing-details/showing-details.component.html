@@ -1,1 +1,40 @@
-<p>{{ showing?.film.title }}</p>
+<section class="dark-text">
+  <cin-film [film]="showing?.film"></cin-film>
+  <div>
+    <div class="rounded half-panel">
+      <h2>Showing Information:</h2>
+      <p>Showtime: {{ showing?.time || "" | time }}</p>
+      <p>
+        Being shown in: Theatre
+        {{ showing?.theatre.id }} {{ showing?.theatre.seatingText }}
+      </p>
+      <p>
+        Seats remaining:
+        {{
+          showing?.theatre.maximumOccupancy - showing?.theatre.currentOccupants
+        }}
+        /
+        {{ showing?.theatre.maximumOccupancy }}
+      </p>
+    </div>
+    <div class="half-panel rounded">
+      <h2>Purchase Tickets:</h2>
+      <p>Unit Price: ${{ showing?.ticketPrice }}.00</p>
+      <p>Total cost: ${{ tickets * showing?.ticketPrice }}.00</p>
+      <button
+        for="tickets"
+        class="orange-button small-button rounded"
+        (click)="buyTickets()"
+      >
+        Buy tickets
+      </button>
+      <input
+        type="number"
+        min="1"
+        max="20"
+        [(ngModel)]="tickets"
+        (click)="logTickets()"
+      />
+    </div>
+  </div>
+</section>

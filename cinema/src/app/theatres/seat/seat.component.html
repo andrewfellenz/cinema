@@ -1,0 +1,11 @@
+<td
+  *ngIf="!occupied"
+  class="dark-text"
+  [ngClass]="{ selected: selected }"
+  (click)="selectSeat()"
+>
+  {{ selected ? "&#10003;" : seatNumber }}
+</td>
+<td class="occupied dark-text" *ngIf="occupied">
+  {{ seatNumber }}
+</td>

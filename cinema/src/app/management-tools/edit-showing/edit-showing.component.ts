@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
 import { Showing } from "src/app/data-models/showing";
 import { HeaderService } from "src/app/services/header.service";
 import { ShowingsService } from "src/app/services/showings.service";

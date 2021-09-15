@@ -1,0 +1,15 @@
+<section>
+  <h2 class="dark-text center-flex">Screen</h2>
+
+  <table>
+    <tr *ngFor="let row of rows">
+      <cin-seat
+        [seatNumber]="row + (1 + seatNumber)"
+        *ngFor="let seat of seats; let seatNumber = index"
+      ></cin-seat>
+    </tr>
+  </table>
+  <button class="orange-button small-button center-flex rounded">
+    Save selections
+  </button>
+</section>

@@ -1,3 +1,4 @@
+import { TheatresComponent } from "./theatres/theatres.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { FilmsComponent } from "./films/films.component";
@@ -28,6 +29,10 @@ const routes: Routes = [
     component: ShowingDetailsComponent,
   },
   {
+    path: "select-seats",
+    component: TheatresComponent,
+  },
+  {
     path: "management-tools",
     component: ManagementToolsComponent,
   },
@@ -47,6 +52,10 @@ const routes: Routes = [
   {
     path: "edit-film",
     component: EditFilmComponent,
+  },
+  {
+    path: "**",
+    redirectTo: "",
   },
 ];
 

@@ -20,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FilmsComponent } from "./films/films.component";
 import { FilmComponent } from "./films/film/film.component";
 import { TimeFormat } from "./pipes/time.pipe";
+import { TheatresComponent } from './theatres/theatres.component';
+import { SeatComponent } from './theatres/seat/seat.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { TimeFormat } from "./pipes/time.pipe";
     FilmsComponent,
     FilmComponent,
     TimeFormat,
+    TheatresComponent,
+    SeatComponent,
   ],
   imports: [
     BrowserModule,

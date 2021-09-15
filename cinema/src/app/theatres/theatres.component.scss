@@ -1,0 +1,29 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  table {
+    margin-top: 10vh;
+    border-collapse: collapse;
+    border-spacing: 0;
+    tr {
+      border: 12px solid transparent;
+    }
+  }
+
+  h2 {
+    margin-top: 4vh;
+    background: #b3b3b3;
+    align-items: center;
+    height: 40px;
+    width: 50vw;
+  }
+
+  cin-seat {
+    margin: 12px;
+    border-bottom: 8px;
+  }
+  button {
+    margin-top: 4vh;
+  }
+}
