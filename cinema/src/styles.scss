@@ -9,7 +9,7 @@ html {
   box-sizing: border-box;
 }
 
-#main-container {
+main {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,12 +18,11 @@ html {
 
 // Color Variables
 $cinema-orange: #ff7c4e;
-$cta-teal: #33ff7e;
 
 // Classes
 .dark-text {
   color: #282828;
-  text-shadow: 0 1px 1px rgba(155, 155, 155, .5);
+  text-shadow: 0 1px 1px rgba(155, 155, 155, 0.5);
 }
 
 .wide-card {
@@ -37,7 +36,7 @@ $cta-teal: #33ff7e;
   border-radius: 4px;
 }
 
-.centered {
+.center-flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,31 +48,39 @@ $cta-teal: #33ff7e;
   padding: 4px 12px;
 }
 
+.blue-button {
+  background: linear-gradient(to top left, dodgerblue, #1ec8ff);
+  &:hover {
+    box-shadow: 0 0 4px 4px rgba(12, 78, 100, 1);
+  }
+}
+
+.orange-button {
+  background: linear-gradient(to bottom right, orange, $cinema-orange);
+  &:hover {
+    box-shadow: 0 0 4px 2px rgba(255, 80, 0, 0.5);
+  }
+}
+
+// Global button styles
 button {
   cursor: pointer;
-  background: linear-gradient(to bottom right, orange, #ff7c4e);
   box-shadow: 0 1px 2px rgba(220, 220, 220, 0.2);
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    background-image: none;
+    color: #666666;
+  }
+  &:disabled:hover {
+    box-shadow: none;
+  }
 }
 
-button:focus {
-  outline: none;
-}
-
-button:hover {
-  box-shadow: 0 0 4px 2px rgba(255, 80, 0, 0.5);
-}
-
-button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  background-image: none;
-  color: #666666;
-}
-button:disabled:hover {
-  box-shadow: none;
-}
-
+// Global input styles
 input,
 select {
   height: 40px;

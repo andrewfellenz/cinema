@@ -1,7 +1,7 @@
-<section class="wide-card rounded dark-text centered">
+<section class="wide-card rounded dark-text center-flex">
   <div>
     <h2 *ngIf="!editMode">{{ showing.film.title }}</h2>
-    <select *ngIf="editMode" id="film" [(ngModel)]="showing.film.id">
+    <select *ngIf="editMode" [(ngModel)]="showing.film.id">
       <option *ngFor="let film of films" [ngValue]="film.id">
         {{ film?.title }}
       </option>
@@ -13,14 +13,17 @@
     </select>
     <div *ngIf="!manager">
       <button
-        class="rounded small-button"
+        class="rounded small-button orange-button"
         [routerLink]="['/buy-tickets/', showing.id]"
       >
         Buy Tickets
       </button>
     </div>
     <div *ngIf="manager">
-      <button class="rounded small-button" (click)="editSave(showing)">
+      <button
+        class="rounded small-button orange-button"
+        (click)="editSave(showing)"
+      >
         {{ editMode ? "Save" : "Edit" }}
       </button>
       <button

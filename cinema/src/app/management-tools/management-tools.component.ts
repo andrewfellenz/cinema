@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { HeaderService } from "./../services/header.service";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'cin-management-tools',
-  templateUrl: './management-tools.component.html',
-  styleUrls: ['./management-tools.component.scss']
+  selector: "cin-management-tools",
+  templateUrl: "./management-tools.component.html",
+  styleUrls: ["./management-tools.component.scss"],
 })
 export class ManagementToolsComponent implements OnInit {
-
-  constructor() { }
+  constructor(private headerService: HeaderService) {}
 
   ngOnInit(): void {
+    this.headerService.changeSubtitle("Manager Tools");
   }
-
 }

@@ -1,10 +1,20 @@
 <header>
-  <H1 [routerLink]="['']">Angular Cinema</H1>
+  <H1 [routerLink]="['']">Angular Cinema {{ subtitle }}</H1>
   <nav>
-    <button class="rounded small-button" [routerLink]="['']">Sign In</button>
-    <button class="rounded small-button" [routerLink]="['']">Register</button>
-    <button class="rounded small-button" [routerLink]="['management-tools']">
+    <button class="rounded small-button orange-button" [routerLink]="['']">
+      Home
+    </button>
+    <button
+      class="rounded small-button orange-button"
+      [routerLink]="['management-tools']"
+    >
       Manager Tools
+    </button>
+    <button class="rounded small-button blue-button" [routerLink]="['']">
+      Sign In
+    </button>
+    <button class="rounded small-button blue-button" [routerLink]="['']">
+      Register
     </button>
   </nav>
 </header>

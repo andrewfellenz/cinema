@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Showing } from "src/app/data-models/showing";
+import { HeaderService } from "src/app/services/header.service";
 import { ShowingsService } from "src/app/services/showings.service";
 
 @Component({
@@ -11,7 +12,10 @@ import { ShowingsService } from "src/app/services/showings.service";
 export class EditShowingComponent implements OnInit {
   allShowings: Showing;
 
-  constructor(private showingsService: ShowingsService) {}
+  constructor(
+    private headerService: HeaderService,
+    private showingsService: ShowingsService
+  ) {}
 
   updateShowing(showing: Showing): void {
     this.showingsService.updateShowing(showing).subscribe();
@@ -31,6 +35,7 @@ export class EditShowingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.headerService.changeSubtitle("Edit Showing");
     this.showingsService
       .getShowings()
       .subscribe((showings) => (this.allShowings = showings));

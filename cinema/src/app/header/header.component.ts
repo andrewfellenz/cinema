@@ -1,3 +1,4 @@
+import { HeaderService } from "./../services/header.service";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -7,8 +8,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HeaderComponent implements OnInit {
   buttons: any = [];
+  subtitle: string;
 
-  constructor() {}
+  constructor(private headerService: HeaderService) {
+    this.headerService.headerSubtitle.subscribe(
+      (subtitle) => (this.subtitle = subtitle)
+    );
+  }
 
   ngOnInit(): void {}
 }

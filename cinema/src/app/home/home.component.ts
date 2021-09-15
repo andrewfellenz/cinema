@@ -1,3 +1,4 @@
+import { HeaderService } from "./../services/header.service";
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../services/user.service";
 
@@ -7,7 +8,12 @@ import { UserService } from "../services/user.service";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private headerService: HeaderService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.headerService.changeSubtitle("Home");
+  }
 }

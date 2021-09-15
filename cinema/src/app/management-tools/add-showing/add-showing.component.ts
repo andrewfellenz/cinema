@@ -1,3 +1,4 @@
+import { HeaderService } from "./../../services/header.service";
 import { Component, OnInit } from "@angular/core";
 import {
   FormBuilder,
@@ -25,6 +26,7 @@ export class AddShowingComponent implements OnInit {
   addShowingForm: FormGroup;
 
   constructor(
+    private headerService: HeaderService,
     private showingsService: ShowingsService,
     private filmsService: FilmsService,
     private theatresService: TheatresService,
@@ -39,6 +41,7 @@ export class AddShowingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.headerService.changeSubtitle("Add Showing");
     this.filmsService.getFilms().subscribe((film) => (this.films = film));
     this.theatresService
       .getTheatres()
