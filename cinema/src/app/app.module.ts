@@ -19,6 +19,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FilmsComponent } from "./films/films.component";
 import { FilmComponent } from "./films/film/film.component";
+import { TimeFormat } from "./pipes/time.pipe";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FilmComponent } from "./films/film/film.component";
     EditShowingComponent,
     FilmsComponent,
     FilmComponent,
+    TimeFormat,
   ],
   imports: [
     BrowserModule,

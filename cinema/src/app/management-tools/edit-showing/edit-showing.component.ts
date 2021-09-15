@@ -14,9 +14,8 @@ export class EditShowingComponent implements OnInit {
   constructor(private showingsService: ShowingsService) {}
 
   updateShowing(showing: Showing): void {
-    this.showingsService
-      .updateShowing(showing)
-      .subscribe(() => this.showingsService.getShowings());
+    this.showingsService.updateShowing(showing).subscribe();
+    console.log("updating showing in edit component:", showing);
   }
 
   // Think of a way to do with behavior subject

@@ -1,4 +1,8 @@
-<form class="rounded" [formGroup]="addShowingForm" (ngSubmit)="onSubmit(addShowingForm.value)">
+<form
+  class="rounded"
+  [formGroup]="addShowingForm"
+  (ngSubmit)="onSubmit(addShowingForm.value)"
+>
   <h1 class="dark-text">Add Showing</h1>
   <label for="film" class="dark-text">Film to be shown:</label>
   <select required id="film" formControlName="film">
@@ -15,8 +19,22 @@
     </option>
   </select>
   <label for="time" class="dark-text">Time of showing:</label>
-  <input required type="time" id="time" formControlName="time" min="12:00" max="24:00" value="07:30">
-  <button class="cta rounded small-button" [disabled]="!addShowingForm.get('time').value || !addShowingForm.get('theatre').value || !addShowingForm.get('film').value">
+  <input
+    required
+    type="time"
+    id="time"
+    formControlName="time"
+    min="12:00"
+    max="24:00"
+  />
+  <button
+    class="cta rounded small-button"
+    [disabled]="
+      !addShowingForm.get('time').value ||
+      !addShowingForm.get('theatre').value ||
+      !addShowingForm.get('film').value
+    "
+  >
     Add Showing
   </button>
 </form>

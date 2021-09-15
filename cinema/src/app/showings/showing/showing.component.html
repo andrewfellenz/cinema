@@ -1,15 +1,13 @@
 <section class="wide-card rounded dark-text centered">
   <div>
     <h2 *ngIf="!editMode">{{ showing.film.title }}</h2>
-    <select *ngIf="editMode" id="film" [(value)]="editedFilmId">
-      <option>Choose film</option>
+    <select *ngIf="editMode" id="film" [(ngModel)]="showing.film.id">
       <option *ngFor="let film of films" [ngValue]="film.id">
         {{ film?.title }}
       </option>
     </select>
-    <select *ngIf="editMode">
-      <option>Choose theatre</option>
-      <option *ngFor="let theatre of theatres" [ngValue]="showing.theatre.id">
+    <select *ngIf="editMode" [(ngModel)]="showing.theatre.id">
+      <option *ngFor="let theatre of theatres" [ngValue]="theatre.id">
         {{ "Theatre: " + theatre?.id + " " + theatre?.seatingText }}
       </option>
     </select>
@@ -39,8 +37,13 @@
     <span>{{ "Starring: " + showing.film.star }}</span>
   </div>
   <div>
-    <span *ngIf="!editMode">{{ showing?.time }}</span>
-    <input *ngIf="editMode" type="time" value="{{ showing.time }}" />
+    <span *ngIf="!editMode">{{ showing?.time | time }}</span>
+    <input
+      *ngIf="editMode"
+      type="time"
+      [(ngModel)]="showing.time"
+      value="{{ showing.time }}"
+    />
     <span>{{ "Running Time: " + showing?.film.runTime }}</span>
     <span>{{ "Rated: " + showing?.film.rating }}</span>
     <span>{{ "Genre: " + showing?.film.genre }}</span>

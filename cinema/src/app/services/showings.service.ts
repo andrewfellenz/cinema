@@ -43,7 +43,7 @@ export class ShowingsService {
 
   updateShowing(showing: Showing): Observable<Showing> {
     const results: Observable<Showing> = this.http.put<Showing>(
-      `${this.showingsUrl}/${showing.id}`,
+      `${this.showingsUrl}`,
       showing,
       this.jsonContentTypeHeaders
     );

@@ -17,8 +17,6 @@ export class ShowingComponent implements OnInit {
   films: Film;
   theatres: Theatre;
 
-  editedFilmId: number;
-
   constructor(
     private filmsService: FilmsService,
     private theatresService: TheatresService
@@ -29,9 +27,16 @@ export class ShowingComponent implements OnInit {
 
   editSave(showing: Showing) {
     if (this.editMode === true) {
-      console.log("Edited ID:", this.editedFilmId);
-      //this.updateShowingEvent.emit(showing);
-      console.log("It's working");
+      this.filmsService.getFilmById(showing.film.id).subscribe(
+        (film) => (showing.film = film),
+        (err) => console.log(err),
+        () =>
+          this.theatresService.gettheatreById(showing.theatre.id).subscribe(
+            (theatre) => (this.showing.theatre = theatre),
+            (err) => console.log(err),
+            () => this.updateShowingEvent.emit(showing)
+          )
+      );
     }
     this.editMode = !this.editMode;
   }
