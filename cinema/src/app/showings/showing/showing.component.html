@@ -1,10 +1,16 @@
 <section class="wide-card rounded dark-text centered">
   <div>
-    <h2 *ngIf="false">{{ showing.film.title }}</h2>
-    <input *ngIf="true" type="text" value="{{showing.film.title}}"/>
-    <select>
-      <option [ngValue]="showing.theatre.id">
-        {{ "Theatre: " + showing.theatre?.id + " " + showing.theatre?.seatingText }}
+    <h2 *ngIf="!editMode">{{ showing.film.title }}</h2>
+    <select *ngIf="editMode" id="film" [(value)]="editedFilmId">
+      <option>Choose film</option>
+      <option *ngFor="let film of films" [ngValue]="film.id">
+        {{ film?.title }}
+      </option>
+    </select>
+    <select *ngIf="editMode">
+      <option>Choose theatre</option>
+      <option *ngFor="let theatre of theatres" [ngValue]="showing.theatre.id">
+        {{ "Theatre: " + theatre?.id + " " + theatre?.seatingText }}
       </option>
     </select>
     <div *ngIf="!manager">
@@ -16,26 +22,27 @@
       </button>
     </div>
     <div *ngIf="manager">
-      <button
-      class="rounded small-button"
-      [routerLink]="['/buy-tickets/', showing.id]"
-      >
-        Edit
+      <button class="rounded small-button" (click)="editSave(showing)">
+        {{ editMode ? "Save" : "Edit" }}
       </button>
-      <button id="delete-button" class="rounded small-button" (click)="deleteShowing(showing)">
+      <button
+        id="delete-button"
+        class="rounded small-button"
+        (click)="deleteShowing(showing)"
+      >
         Delete
       </button>
     </div>
   </div>
   <div>
-    <span>{{ "Director: " + showing.film.director }}</span>
+    <span>{{ "Director: " + showing?.film.director }}</span>
     <span>{{ "Starring: " + showing.film.star }}</span>
   </div>
   <div>
-    <span *ngIf="false">{{ showing.time }}</span>
-    <input *ngIf="true" type="time" value="{{showing.time}}"/>
-    <span>{{ "Running Time: " + showing.film.runTime }}</span>
-    <span>{{ "Rated: " + showing.film.rating }}</span>
-    <span>{{ "Genre: " + showing.film.genre }}</span>
+    <span *ngIf="!editMode">{{ showing?.time }}</span>
+    <input *ngIf="editMode" type="time" value="{{ showing.time }}" />
+    <span>{{ "Running Time: " + showing?.film.runTime }}</span>
+    <span>{{ "Rated: " + showing?.film.rating }}</span>
+    <span>{{ "Genre: " + showing?.film.genre }}</span>
   </div>
 </section>

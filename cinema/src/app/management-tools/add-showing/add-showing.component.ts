@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { Router } from "@angular/router";
 import { Film } from "src/app/data-models/film";
 import { Showing } from "src/app/data-models/showing";
@@ -17,7 +22,6 @@ export class AddShowingComponent implements OnInit {
   films: Film;
   theatres: Theatre;
   showing = new Showing();
-
   addShowingForm: FormGroup;
 
   constructor(
@@ -27,13 +31,11 @@ export class AddShowingComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router
   ) {
-    this.addShowingForm = formBuilder.group(
-      {
-        film: [null, Validators.required],
-        theatre: [null, Validators.required],
-        time: [null, Validators.required],
-      }
-    );
+    this.addShowingForm = formBuilder.group({
+      film: [null, Validators.required],
+      theatre: [null, Validators.required],
+      time: [null, Validators.required],
+    });
   }
 
   ngOnInit(): void {
@@ -53,16 +55,16 @@ export class AddShowingComponent implements OnInit {
     this.showing.ticketPrice = 0;
     this.showing.time = formValues.time;
     this.showing.ticketPrice = 13;
-    this.theatresService.gettheatreById(formValues.theatre).subscribe((theatre) => (this.showing.theatre = theatre));
-    this.filmsService
-      .getFilmById(formValues.film)
-      .subscribe(
-        (film) => (this.showing.film = film),
-        () => "",
-        () => {
-          this.showingsService.addShowing(this.showing).subscribe();
-        }
-      );
-    this.router.navigate(['/management-tools'])
+    this.theatresService
+      .gettheatreById(formValues.theatre)
+      .subscribe((theatre) => (this.showing.theatre = theatre));
+    this.filmsService.getFilmById(formValues.film).subscribe(
+      (film) => (this.showing.film = film),
+      () => "",
+      () => {
+        this.showingsService.addShowing(this.showing).subscribe();
+      }
+    );
+    this.router.navigate(["/management-tools"]);
   }
 }

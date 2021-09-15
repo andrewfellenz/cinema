@@ -13,12 +13,21 @@ export class EditShowingComponent implements OnInit {
 
   constructor(private showingsService: ShowingsService) {}
 
+  updateShowing(showing: Showing): void {
+    this.showingsService
+      .updateShowing(showing)
+      .subscribe(() => this.showingsService.getShowings());
+  }
 
   // Think of a way to do with behavior subject
   deleteShowing(showing: Showing): void {
-    this.showingsService.deleteShowingById(showing.id).subscribe(() => this.showingsService
-    .getShowings()
-    .subscribe((showings) => (this.allShowings = showings)));
+    this.showingsService
+      .deleteShowingById(showing.id)
+      .subscribe(() =>
+        this.showingsService
+          .getShowings()
+          .subscribe((showings) => (this.allShowings = showings))
+      );
     console.log(this.allShowings);
   }
 

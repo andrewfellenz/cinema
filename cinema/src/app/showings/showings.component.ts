@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
 import { Showing } from "../data-models/showing";
 import { ShowingsService } from "../services/showings.service";
 

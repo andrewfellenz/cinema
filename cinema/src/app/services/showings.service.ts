@@ -41,6 +41,16 @@ export class ShowingsService {
     return results;
   }
 
+  updateShowing(showing: Showing): Observable<Showing> {
+    const results: Observable<Showing> = this.http.put<Showing>(
+      `${this.showingsUrl}/${showing.id}`,
+      showing,
+      this.jsonContentTypeHeaders
+    );
+    console.log(`updateShowing(${showing}) returned ${results}`);
+    return results;
+  }
+
   deleteShowingById(showingId: number) {
     const results: Observable<Showing> = this.http.delete<Showing>(
       `${this.showingsUrl}/${showingId}`
