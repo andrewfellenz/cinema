@@ -12,35 +12,30 @@ Welcome to my Angular Cinema Web App! With this app, you can view the films and 
 
 ### Copy and paste the following commands in a Visual Studio Code terminal:
 
-```
-git clone https://github.com/andrewfellenz/cinema
-```
-
-```
-cd cinema/cinema
-```
-
-```
-npm i
-```
-
-```
-npm start
-```
+1. ```
+   git clone https://github.com/andrewfellenz/cinema
+   ```
+2. ```
+   cd cinema/cinema
+   ```
+3. ```
+   npm i
+   ```
+4. ```
+   npm start
+   ```
 
 ### Run the following command in a _second_ vscode terminal:
 
-```
-cd ../server
-```
-
-```
-npm i
-```
-
-```
-node ./server.js
-```
+1. ```
+   cd ../server
+   ```
+2. ```
+   npm i
+   ```
+3. ```
+   node ./server.js
+   ```
 
 ### Open google chrome and type the following link into the address bar:
 
