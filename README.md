@@ -71,12 +71,12 @@ http://localhost:4200
 5. Click the "book seats" button. Please note that this feature currently only routes back to home and does not save ticketing information.
 6. Click manager tools and add a new showing!
 7. Click edit showings and change the new showing you just added. Try saving your edits.
-8. Consider deleting a showing!
+8. Consider deleting a showing.
+9. It's also possible to both register a user and sign in as one, but these features currently give limited feedback.
 
 # Incomplete Features
 
-1. Register and Sign In buttons just route back to home currently.
-2. There is no user info saved.
-3. Tickets are not saved and showing info and ticket info is not linked together.
-4. There will be a feature allowing the adding of other films.
-5. There will be user account info and the ability to edit or delete user account information.
+1. There is no user info saved.
+2. Tickets are not saved and showing info and ticket info is not linked together.
+3. There will be a feature allowing the adding of other films.
+4. It will be possible to edit or delete user account information.

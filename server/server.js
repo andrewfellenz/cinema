@@ -163,7 +163,7 @@ app.get("/api/seats", function (req, res) {
 });
 
 // GET VIEWERS
-app.get("/api/viewers", function (req, res) {
+/* app.get("/api/viewers", function (req, res) {
   console.log("Received a GET request for all viewers");
 
   let data = fs.readFileSync(__dirname + "/data/viewers.json", "utf8");
@@ -173,7 +173,7 @@ app.get("/api/viewers", function (req, res) {
   console.log(data);
   res.end(JSON.stringify(data));
 });
-
+ */
 // GET FILMS
 app.get("/api/films", function (req, res) {
   console.log("Received a GET request for all films");
@@ -257,6 +257,29 @@ app.get("/api/films/:id", function (req, res) {
   res.end(JSON.stringify(match));
 });
 
+// GET VIEWER
+app.get("/api/viewers/:email/:password", function (req, res) {
+  let email = req.params.email;
+  let password = req.params.password;
+
+  console.log("Received a GET request for viewer ");
+
+  let data = fs.readFileSync(__dirname + "/data/viewers.json", "utf8");
+  data = JSON.parse(data);
+
+  let match = data.find((element) => element.email == email);
+  console.log(match.password, password);
+  console.log(match.password ==)
+  if (match == null) {
+    res.status(404).send("User Not Found");
+    return;
+  }
+
+  console.log("Returned data is: ");
+  console.log(match);
+  res.end(JSON.stringify(match));
+});
+
 // GET MANY GROUPS BY ORGANIZATION
 app.get("/api/groups/byorganization/:id", function (req, res) {
   let id = req.params.id;
@@ -316,7 +339,7 @@ app.get("/api/groups/:groupid/members/:memberid", function (req, res) {
   res.end(JSON.stringify(match));
 });
 
-// ADD A GROUP
+// ADD A SHOWING
 app.post("/api/showings", urlencodedParser, function (req, res) {
   console.log("Received a POST request to add a showing");
   console.log("BODY -------->" + JSON.stringify(req.body));
@@ -352,6 +375,45 @@ app.post("/api/showings", urlencodedParser, function (req, res) {
 
   //res.status(201).send();
   res.end(JSON.stringify(showing)); // return the new group w it's GroupId
+});
+
+// ADD A VIEWER
+app.post("/api/viewers", urlencodedParser, function (req, res) {
+  console.log("Received a POST request to add a viewer");
+  console.log("BODY -------->" + JSON.stringify(req.body));
+
+  // assemble viewer information so we can validate it
+  let viewer = {
+    id: getNextId("viewer"),
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    isAdult: req.body.isAdult,
+    email: req.body.email,
+    password: req.body.password,
+    tickets: req.body.tickets,
+  };
+
+  /*   console.log("Performing validation..."); */
+  /*   let errorCode = isValidGroup(group);
+  if (errorCode != -1) {
+    console.log("Invalid data found! Reason: " + errorCode);
+    res.status(400).send("Bad Request - Incorrect or Missing Data");
+    return;
+  }
+ */
+  let data = fs.readFileSync(__dirname + "/data/viewers.json", "utf8");
+  data = JSON.parse(data);
+
+  // add the group
+  data.push(viewer);
+
+  fs.writeFileSync(__dirname + "/data/viewers.json", JSON.stringify(data));
+
+  console.log("Viewer added: ");
+  console.log(viewer);
+
+  //res.status(201).send();
+  res.end(JSON.stringify(viewer)); // return the new group w it's GroupId
 });
 
 // EDIT A GROUP
