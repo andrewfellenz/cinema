@@ -1,21 +1,37 @@
 # Angular Cinema
 
-Steps for installing running the program:
+Welcome to my Angular Cinema Web App! With this app, you can view the films and showings available at my fictional cinema. This is a testing ground for me to improve at Angular and leave no stone unturned. I hope you enjoy!
 
-1. Run the following command in a Visual Studio Code terminal: git clone https://github.com/andrewfellenz/cinema
-2. Change directory into the this new repository folder
-3. Open a second terminal instance in VSCode
-4. In your second terminal copy and paste this command: node server/server.js
-5. In your first terminal change directory to the correct folder with this command: cd cinema
-6. Run this command: npm i
-7. Run this command: ng serve
-8. The application should now be running!
+# Prerequisites
 
-# Available features
+1. Download and install Node.js and npm: https://nodejs.org/en/download/
+2. Download and install Git https://git-scm.com/downloads
+3. Have either Google Chrome or Mozilla Firefox installed!
 
-The app currently has the following features
+# Installation steps
 
-User facing screens:
+### Run the following commands in Visual Studio Code terminal:
+
+1. git clone https://github.com/andrewfellenz/cinema
+2. cd cinema/cinema
+3. npm i
+4. npm start
+
+### Run the following command in the second vscode terminal: Open a second vscode terminal and run the following commands
+
+1. cd ../server
+2. npm i
+3. node ./server.js
+
+### Open google chrome and type the following link into the address bar:
+
+- http://localhost:4200
+
+# Available Features
+
+The app currently has the following features:
+
+### User facing screens:
 
 1. A home screen: http://localhost:4200/
 2. A screen that displays all of the movie showings available to customers: http://localhost:4200/showings
@@ -23,13 +39,13 @@ User facing screens:
 4. A screen to purchase tickets for the showing of the customer's choice: http://localhost:4200/buy-tickets/110 <-- Must include a valid showing ID
 5. A screen to select the seats to associate with the user's tickets: http://localhost:4200/select-seats <-- must first buy tickets on screen #4 above
 
-Manager facing screens:
+### Manager facing screens:
 
-6. A manger tools screen: http://localhost:4200/management-tools
-7. A screen to add a showing: http://localhost:4200/add-showing
-8. A screen to show all existing showings and allow for editing or deleting: http://localhost:4200/edit-showing
+1. A manger tools screen: http://localhost:4200/management-tools
+2. A screen to add a showing: http://localhost:4200/add-showing
+3. A screen to show all existing showings and allow for editing or deleting: http://localhost:4200/edit-showing
 
-# Using the site
+# Navigating the App
 
 1. To get a feels for the site, first look at the available films, in screen #3.
 2. Try browsing the available showings and selecting one to buy tickets!
