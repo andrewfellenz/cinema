@@ -5,7 +5,7 @@ Welcome to my Angular Cinema Web App! With this app, you can view the films and 
 # Prerequisites
 
 1. Download and install Node.js and npm: https://nodejs.org/en/download/
-2. Download and install Git https://git-scm.com/downloads
+2. Download and install Git: https://git-scm.com/downloads
 3. Have either Google Chrome or Mozilla Firefox installed!
 
 # Installation steps
