@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HeaderService } from "../services/header.service";
 
 @Component({
   selector: "cin-theatres",
@@ -11,7 +12,9 @@ export class TheatresComponent implements OnInit {
   rows: string[] = Array.from("ABCDEFGH");
   seats: number[] = [...Array(this.maximumOccupancy / 8).keys()];
 
-  constructor() {}
+  constructor(private headerService: HeaderService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.headerService.changeSubtitle("Select Seats");
+  }
 }
