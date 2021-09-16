@@ -10,7 +10,7 @@ Welcome to my Angular Cinema Web App! With this app, you can view the films and 
 
 # Installation steps
 
-### Copy and paste the following commands in a Visual Studio Code terminal:
+### To start the Angular application copy and paste the following commands in a Visual Studio Code terminal:
 
 ```
 git clone https://github.com/andrewfellenz/cinema
@@ -28,7 +28,7 @@ npm i
 npm start
 ```
 
-### Copy and paste following commands in a _second_ Visual Studio Code terminal:
+### To start the Node server copy and paste following commands in a _second_ Visual Studio Code terminal:
 
 ```
 cd ../server

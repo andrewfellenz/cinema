@@ -13,7 +13,7 @@
     </select>
     <div *ngIf="!manager">
       <button
-        class="rounded small-button orange-button"
+        class="rounded small-button primary-color"
         [routerLink]="['/buy-tickets/', showing.id]"
       >
         Buy Tickets
@@ -21,14 +21,13 @@
     </div>
     <div *ngIf="manager">
       <button
-        class="rounded small-button orange-button"
+        class="rounded small-button primary-color"
         (click)="editSave(showing)"
       >
         {{ editMode ? "Save" : "Edit" }}
       </button>
       <button
-        id="delete-button"
-        class="rounded small-button"
+        class="warning-color rounded small-button"
         (click)="deleteShowing(showing)"
       >
         Delete

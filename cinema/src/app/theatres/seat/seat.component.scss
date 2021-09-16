@@ -4,11 +4,13 @@ td {
   background: dodgerblue;
   text-align: center;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .occupied {
   background: #b3b3b3;
   content: "/";
+  cursor: default;
 }
 
 .selected {
