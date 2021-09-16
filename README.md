@@ -25,7 +25,7 @@ Welcome to my Angular Cinema Web App! With this app, you can view the films and 
    npm start
    ```
 
-### Run the following command in a _second_ vscode terminal:
+### Run the following command in a _second_ Visual Studio Code terminal:
 
 1. ```
    cd ../server
