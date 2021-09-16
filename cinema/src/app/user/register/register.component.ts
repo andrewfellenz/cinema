@@ -1,9 +1,9 @@
-import { RegisterService } from "./../../services/register.service";
 import { UserService } from "./../../services/user.service";
 import { Component, OnInit } from "@angular/core";
 import { HeaderService } from "src/app/services/header.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Viewer } from "src/app/data-models/viewer";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "cin-register",
@@ -16,9 +16,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private headerService: HeaderService,
-    private userService: UserService,
     private formBuilder: FormBuilder,
-    private registerService: RegisterService
+    private userService: UserService,
+    private router: Router
   ) {
     this.registerForm = formBuilder.group({
       firstName: [null, Validators.required],
@@ -32,9 +32,8 @@ export class RegisterComponent implements OnInit {
   onSubmit(formValues) {
     if (formValues) {
       this.registerViewer(formValues);
-    } else {
-      console.log("Please fill out all fields");
     }
+    this.router.navigate(["/home"]);
   }
 
   registerViewer(formValues) {
@@ -45,7 +44,9 @@ export class RegisterComponent implements OnInit {
     this.viewer.password = formValues.password;
     this.viewer.isAdult = formValues.isAdult;
     this.viewer.tickets = [];
-    this.registerService.registerViewer(this.viewer).subscribe();
+    this.userService
+      .registerViewer(this.viewer)
+      .subscribe((user) => this.userService.setUser(user));
   }
 
   ngOnInit(): void {

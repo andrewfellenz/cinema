@@ -14,7 +14,7 @@
       class="rounded small-button secondary-color"
       [routerLink]="['sign-in']"
     >
-      Sign In
+      {{ this.currentUser ? "Sign Out" : "Sign In" }}
     </button>
     <button
       class="rounded small-button secondary-color"

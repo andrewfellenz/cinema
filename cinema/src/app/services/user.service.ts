@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Viewer } from "../data-models/viewer";
@@ -6,14 +7,34 @@ import { Viewer } from "../data-models/viewer";
   providedIn: "root",
 })
 export class UserService {
-  private manager: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  private viewer: Viewer;
+  user: BehaviorSubject<Viewer>;
+  private viewersUrl: string = "http://localhost:8082/api/viewers";
+  private jsonContentTypeHeaders = {
+    headers: new HttpHeaders().set("Content-Type", "application/json"),
+  };
+  private errorMessage: string;
 
-  isManager(): Observable<Boolean> {
-    return this.manager;
+  constructor(private http: HttpClient) {}
+
+  registerViewer(viewer: Viewer): Observable<Viewer> {
+    const results: Observable<Viewer> = this.http.post<Viewer>(
+      this.viewersUrl,
+      viewer,
+      this.jsonContentTypeHeaders
+    );
+    console.log(`registerViewer(${viewer}) returned ${results}`);
+    return results;
   }
 
-  managerLogin(): void {}
+  signIn(email: string, password: string): Observable<Viewer> {
+    const results: Observable<Viewer> = this.http.get<Viewer>(
+      `${this.viewersUrl}/${email}/${password}`
+    );
+    console.log(`getShowingByEmail(${email}) returned ${results}`);
+    return results;
+  }
 
-  constructor() {}
+  setUser(user: Viewer): void {
+    this.user = new BehaviorSubject(user);
+  }
 }

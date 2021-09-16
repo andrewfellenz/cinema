@@ -1,1 +1,22 @@
-<p>sign-in works!</p>
+<form
+  class="rounded"
+  [formGroup]="signInForm"
+  (ngSubmit)="onSubmit(signInForm.value)"
+>
+  <h1 class="dark-text">Sign In</h1>
+  <label for="email" type="email" class="dark-text">Email:</label>
+  <input required name="email" formControlName="email" />
+
+  <label for="password" class="dark-text">Password:</label>
+  <input required type="password" formControlName="password" name="password" />
+
+  <button
+    class="cta rounded small-button primary-color"
+    type="submit"
+    [disabled]="
+      !signInForm.get('email').value || !signInForm.get('password').value
+    "
+  >
+    Sign In
+  </button>
+</form>
