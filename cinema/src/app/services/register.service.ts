@@ -15,13 +15,13 @@ export class RegisterService {
 
   constructor(private http: HttpClient) {}
 
-  addShowing(viewer: Viewer): Observable<Viewer> {
+  registerViewer(viewer: Viewer): Observable<Viewer> {
     const results: Observable<Viewer> = this.http.post<Viewer>(
       this.viewersUrl,
       viewer,
       this.jsonContentTypeHeaders
     );
-    console.log(`addShowing(${viewer}) returned ${results}`);
+    console.log(`registerViewer(${viewer}) returned ${results}`);
     return results;
   }
 }

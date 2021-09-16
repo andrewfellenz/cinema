@@ -13,18 +13,12 @@
   <input required name="email" formControlName="email" />
 
   <label for="password" class="dark-text">New password:</label>
-  <input
-    required
-    type="password"
-    min="12"
-    formControlName="password"
-    name="password"
-  />
+  <input required type="password" formControlName="password" name="password" />
 
-  <label for="age" class="dark-text">Age:</label>
-  <select required name="age" formControlName="age">
-    <option value="!adult">Under 18</option>
-    <option value="adult">18 or over</option>
+  <label for="isAdult" class="dark-text">Are you over 18?</label>
+  <select required name="isAdult" formControlName="isAdult">
+    <option [value]="true">I am over 18</option>
+    <option [value]="false">I am not over 18</option>
   </select>
   <button
     class="cta rounded small-button primary-color"
@@ -33,7 +27,7 @@
       !registerForm.get('lastName').value ||
       !registerForm.get('email').value ||
       !registerForm.get('password').value ||
-      !registerForm.get('age').value
+      !registerForm.get('isAdult').value
     "
   >
     Register Account
