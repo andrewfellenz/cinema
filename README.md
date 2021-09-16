@@ -4,34 +4,49 @@ Welcome to my Angular Cinema Web App! With this app, you can view the films and 
 
 # Prerequisites
 
-1. Download and install Node.js and npm: https://nodejs.org/en/download/
-2. Download and install Git: https://git-scm.com/downloads
-3. Have either Google Chrome or Mozilla Firefox installed!
+1. Download and [install Node.js and npm](https://nodejs.org/en/download/)
+2. Download and [install Git](https://git-scm.com/downloads)
+3. Have either [Google Chrome](https://www.google.com/chrome/) or [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/download/thanks/) installed!
 
 # Installation steps
 
-### Run the following commands in Visual Studio Code terminal:
+### Copy and paste the following commands in a Visual Studio Code terminal:
 
 ```
 git clone https://github.com/andrewfellenz/cinema
+```
+
+```
 cd cinema/cinema
+```
+
+```
 npm i
+```
+
+```
 npm start
 ```
 
-### Run the following command in the second vscode terminal: Open a second vscode terminal and run the following commands
+### Run the following command in a _second_ vscode terminal:
 
-1. cd ../server
-2. npm i
-3. node ./server.js
+```
+cd ../server
+```
+
+```
+npm i
+```
+
+```
+node ./server.js
+```
 
 ### Open google chrome and type the following link into the address bar:
 
-- http://localhost:4200
+http://localhost:4200
 
 # Available Features
-
-The app currently has the following features:
 
 ### User facing screens:
 
