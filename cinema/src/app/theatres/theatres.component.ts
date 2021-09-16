@@ -1,3 +1,4 @@
+import { TicketService } from "./../services/ticket.service";
 import { Component, OnInit } from "@angular/core";
 import { HeaderService } from "../services/header.service";
 
@@ -12,9 +13,15 @@ export class TheatresComponent implements OnInit {
   rows: string[] = Array.from("ABCDEFGH");
   seats: number[] = [...Array(this.maximumOccupancy / 8).keys()];
 
-  constructor(private headerService: HeaderService) {}
+  constructor(
+    private headerService: HeaderService,
+    private ticketService: TicketService
+  ) {}
 
   ngOnInit(): void {
     this.headerService.changeSubtitle("Select Seats");
+    this.ticketService
+      .getTickets()
+      .subscribe((tickets) => (this.tickets = tickets));
   }
 }

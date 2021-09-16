@@ -1,11 +1,6 @@
 import { HeaderService } from "./../../services/header.service";
 import { Component, OnInit } from "@angular/core";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Film } from "src/app/data-models/film";
 import { Showing } from "src/app/data-models/showing";

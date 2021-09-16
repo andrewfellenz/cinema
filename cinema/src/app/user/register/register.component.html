@@ -1,0 +1,41 @@
+<form
+  class="rounded"
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit(registerForm.value)"
+>
+  <h1 class="dark-text">Register Account</h1>
+  <label for="first-name" class="dark-text">First name:</label>
+  <input required name="first-name" formControlName="firstName" />
+  <label for="last-name" class="dark-text">Last name:</label>
+  <input required name="last-name" formControlName="lastName" />
+
+  <label for="email" type="email" class="dark-text">Email:</label>
+  <input required name="email" formControlName="email" />
+
+  <label for="password" class="dark-text">New password:</label>
+  <input
+    required
+    type="password"
+    min="12"
+    formControlName="password"
+    name="password"
+  />
+
+  <label for="age" class="dark-text">Age:</label>
+  <select required name="age" formControlName="age">
+    <option value="!adult">Under 18</option>
+    <option value="adult">18 or over</option>
+  </select>
+  <button
+    class="cta rounded small-button primary-color"
+    [disabled]="
+      !registerForm.get('firstName').value ||
+      !registerForm.get('lastName').value ||
+      !registerForm.get('email').value ||
+      !registerForm.get('password').value ||
+      !registerForm.get('age').value
+    "
+  >
+    Register Account
+  </button>
+</form>

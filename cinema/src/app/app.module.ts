@@ -5,7 +5,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { ShowingComponent } from "./showings/showing/showing.component";
-import { CinemaInputComponent } from "./shared/cinema-input/cinema-input.component";
 import { PanelButtonComponent } from "./shared/panel-button/panel-button.component";
 import { HomeComponent } from "./home/home.component";
 import { ShowingsComponent } from "./showings/showings.component";
@@ -20,15 +19,16 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FilmsComponent } from "./films/films.component";
 import { FilmComponent } from "./films/film/film.component";
 import { TimeFormat } from "./pipes/time.pipe";
-import { TheatresComponent } from './theatres/theatres.component';
-import { SeatComponent } from './theatres/seat/seat.component';
+import { TheatresComponent } from "./theatres/theatres.component";
+import { SeatComponent } from "./theatres/seat/seat.component";
+import { RegisterComponent } from "./user/register/register.component";
+import { SignInComponent } from "./user/sign-in/sign-in.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ShowingComponent,
-    CinemaInputComponent,
     PanelButtonComponent,
     HomeComponent,
     ShowingsComponent,
@@ -43,6 +43,8 @@ import { SeatComponent } from './theatres/seat/seat.component';
     TimeFormat,
     TheatresComponent,
     SeatComponent,
+    RegisterComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,

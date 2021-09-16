@@ -1,3 +1,5 @@
+import { SignInComponent } from "./user/sign-in/sign-in.component";
+import { RegisterComponent } from "./user/register/register.component";
 import { TheatresComponent } from "./theatres/theatres.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -15,6 +17,14 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
+  },
+  {
+    path: "register",
+    component: RegisterComponent,
+  },
+  {
+    path: "sign-in",
+    component: SignInComponent,
   },
   {
     path: "showings",
