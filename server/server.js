@@ -267,9 +267,10 @@ app.get("/api/viewers/:email/:password", function (req, res) {
   let data = fs.readFileSync(__dirname + "/data/viewers.json", "utf8");
   data = JSON.parse(data);
 
-  let match = data.find((element) => element.email == email);
-  console.log(match.password, password);
-  console.log(match.password ==)
+  let match = data.find(
+    (element) => element.email == email && element.password == password
+  );
+
   if (match == null) {
     res.status(404).send("User Not Found");
     return;
