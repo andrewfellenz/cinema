@@ -14,7 +14,7 @@ export class TimeFormat implements PipeTransform {
     } else if (hour > 12) {
       hour = hour - 12;
     }
-    hour = parseInt(hour) <= 10 ? hour : `${hour[1]}`;
+    hour = parseInt(hour) <= 10 && hour.length == 2 ? hour[1] : hour;
     min = (min + "").length == 1 ? `0${min}` : min;
     return `${hour}:${min} ${part}`;
   }
