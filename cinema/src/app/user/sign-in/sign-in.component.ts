@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
         this.userService.setUser(user),
           () => "",
           () =>
-            this.userService.user.subscribe((user) => {
+            this.userService.getUser().subscribe((user) => {
               this.currentUser = user;
             });
       });

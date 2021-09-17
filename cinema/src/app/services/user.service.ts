@@ -7,7 +7,7 @@ import { Viewer } from "../data-models/viewer";
   providedIn: "root",
 })
 export class UserService {
-  user: BehaviorSubject<Viewer>;
+  private user: BehaviorSubject<Viewer>;
   private viewersUrl: string = "http://localhost:8082/api/viewers";
   private jsonContentTypeHeaders = {
     headers: new HttpHeaders().set("Content-Type", "application/json"),
@@ -36,5 +36,9 @@ export class UserService {
 
   setUser(user: Viewer): void {
     this.user = new BehaviorSubject(user);
+  }
+
+  getUser(): BehaviorSubject<Viewer> {
+    return this.user;
   }
 }

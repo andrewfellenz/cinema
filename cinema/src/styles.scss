@@ -124,9 +124,10 @@ form {
 }
 
 // Testing responsive styling
+// This setting holds up until the screen is 324
 @media only screen and (max-width: 866px) {
   body {
-    font-size: 10px;
+    font-size: 12px;
   }
   header {
     h1 {
@@ -161,7 +162,7 @@ form {
   cin-add-showing {
     form {
       font-size: 1.5em;
-      width: 60vw !important;
+      width: 54vw !important;
     }
   }
 
@@ -174,4 +175,33 @@ form {
       width: 70vw !important;
     }
   }
+  cin-seat {
+    margin: 4px !important;
+    border-bottom: 2px !important;
+    td {
+      font-size: 10px !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
 }
+
+// @media only screen and (max-width: 866px) {
+//   body {
+//     font-size: 10px !important;
+//     width: 100% !important;
+//   }
+//   form {
+//     width: 60vw !important;
+//   }
+//   main {
+//     width: 100% !important;
+//   }
+//   cin-header {
+//     width: 100% !important;
+//   }
+//   input,
+//   select {
+//     width: 100% !important;
+//   }
+// }

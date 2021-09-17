@@ -27,10 +27,6 @@ export class ShowingDetailsComponent implements OnInit {
     this.router.navigate(["/select-seats"]);
   }
 
-  logTickets() {
-    console.log(this.tickets);
-  }
-
   ngOnInit(): void {
     this.headerService.changeSubtitle("Buy Tickets");
     this.route.params.subscribe((params) => {
