@@ -124,7 +124,7 @@ form {
 }
 
 // Testing responsive styling
-// This setting holds up until the screen is 324
+// This setting holds up until the screen is 424
 @media only screen and (max-width: 866px) {
   body {
     font-size: 12px;
@@ -157,6 +157,7 @@ form {
     section {
       width: 80vw !important;
       height: 40vh !important;
+      margin-bottom: 0 !important;
     }
   }
   cin-add-showing {
@@ -179,9 +180,9 @@ form {
     margin: 4px !important;
     border-bottom: 2px !important;
     td {
-      font-size: 10px !important;
-      width: 20px !important;
-      height: 20px !important;
+      font-size: 11px !important;
+      width: 30px !important;
+      height: 30px !important;
     }
   }
 }
