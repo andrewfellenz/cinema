@@ -131,6 +131,7 @@ form {
   }
   header {
     h1 {
+      font-size: 4em !important;
       margin: 0 !important;
     }
     height: fit-content !important;
@@ -153,6 +154,9 @@ form {
     width: 80vw;
     margin: 4vh 0 !important;
   }
+  form {
+    font-size: 1.5em !important;
+  }
   cin-film {
     section {
       width: 80vw !important;
@@ -162,7 +166,6 @@ form {
   }
   cin-add-showing {
     form {
-      font-size: 1.5em;
       width: 54vw !important;
     }
   }
