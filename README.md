@@ -31,10 +31,6 @@ npm start
 ### To start the Node server copy and paste following commands in a _second_ Visual Studio Code terminal:
 
 ```
-cd ../server
-```
-
-```
 npm i
 ```
 
